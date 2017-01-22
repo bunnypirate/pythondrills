@@ -25,7 +25,7 @@ def file_move(src, dest, age):
         file_mtime = round(os.stat(name).st_mtime)
         time_in_seconds_since_epoch = round(time.mktime(datetime.datetime.today().timetuple()))
  
-        if (time_in_seconds_since_epoch >= (file_mtime + age)) :
+        if ((time_in_seconds_since_epoch - age) <= file_mtime) :
             print ('SOURCE : ', src)
             print ('BACKUP : ', dest)
             print (name, "--> ", dest)
